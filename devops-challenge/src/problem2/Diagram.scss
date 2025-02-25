@@ -1,0 +1,16 @@
+[ Users / Traders ]
+      ↓
+[ AWS API Gateway ]  ← (DDoS Protection via AWS WAF)
+      ↓
+[ AWS ALB (Load Balancer) ]
+      ↓
+[ Trading Engine (EKS - Kubernetes) ]
+      ↳ Order Matching Service (High-performance Compute)
+      ↳ Order Book & Market Data (Managed Database)
+      ↳ User Balances & Wallets (Cache + DB)
+      ↳ Event Queue (Kafka or SQS)
+      ↳ Trade Settlement (Async Processing)
+      ↓
+[ AWS Aurora (PostgreSQL) ]
+[ ElastiCache (Redis) for low-latency reads ]
+[ AWS S3 for trade logs & snapshots ]
